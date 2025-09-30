@@ -1,0 +1,32 @@
+import { CiMenuBurger } from "react-icons/ci"
+import {Link} from 'react-router-dom'
+
+
+const urls = [
+    {id:1,
+     name:'Inicio',
+     path:'/'
+    },
+    {id:2,
+     name:'Sobre',
+     path:'/about'
+    }
+]
+
+
+export function BtnMenu({...props}){
+    return(
+        
+        <button {...props} className="text-3xl m-10"><CiMenuBurger/></button>
+    )
+}
+
+export function Menu({...props}){
+    return (
+        <nav {...props}>
+            {urls.map((item,index)=>(
+                <Link key={index}to={item.path}>{item.name}</Link>
+            ))}
+        </nav>
+    )
+}
