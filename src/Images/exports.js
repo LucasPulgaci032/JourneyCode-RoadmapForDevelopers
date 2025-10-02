@@ -1,3 +1,3 @@
-import bannerImg from '../Images/bannerImg.png'
+import bannerImg from "../Images/bannerImg.png";
 
-export default bannerImg
+export default bannerImg;

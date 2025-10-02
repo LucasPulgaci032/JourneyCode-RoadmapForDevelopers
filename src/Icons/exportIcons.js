@@ -7,4 +7,4 @@ export {
     IoLogoJavascript,
     FaPython,
     CiMenuBurger
-}
+};

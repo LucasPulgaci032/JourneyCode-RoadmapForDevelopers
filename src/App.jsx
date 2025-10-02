@@ -1,41 +1,46 @@
 
-import './App.css'
-import StartComponents from './Components'
-import ChangeBodyTheme from './Components/body'
-import { useState } from 'react'
-import { BtnMenu, Menu } from './Components/Menu'
-import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import "./App.css";
+import InicialPage from "./Pages/InicialPage";
+import { useState } from "react";
+import { BtnMenu, Menu } from "./Components/Menu";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import { AboutPage } from "./Pages/AboutPage";
+import { RoadmapJs, RoadmapPython } from "./Pages/RoadmapLangPages/exportsRoad";
+
+
+
 function App() {
  const [menu, setMenu] = useState(false)
- const [color,setColor] = useState(true)
+
 
  function toggleMenu(){
-   setMenu(!menu)
- }
-
-function changeColor(){
-  setColor(!color)
-}
+    setMenu(!menu)
+  }
+   
+ 
 
   return (
-    <div className={`flex flex-col p-4  ${color ? "bg-white text-[--font-color-primary]" : "bg-[#040727] text-[--font-color-secundary]"}`}>
+    <div>
      
      <BrowserRouter>
 
-     <Menu className={`${menu ? "flex flex-col fixed z-50 w-1/6 h-[100%] bg-blue-700":"hidden"}`}/>
-      <Routes>
-        <Route path='/' element={<StartComponents/>}/>    
-        
+     <Menu className={`${menu ? "flex flex-col fixed z-50 w-[150px] h-[100%] bg-blue-700":"hidden"}`}/>
+       
+      <Routes> 
+        <Route path='/' element={<InicialPage/>}/>    
+        <Route path='/About' element={<AboutPage/>}/>
+       
       </Routes>
-
-
+      <Routes> {/*rotas dos roadmaps */}
+          <Route path="/roadmapjs" element={<RoadmapJs/>}/>
+          <Route path="/roadmappy" element={<RoadmapPython/>}/>
+      </Routes>
+        <BtnMenu className={`${menu ? "text-3xl p-4  text-[--font-color-primary] ml-[300px]":"text-3xl p-4  text-[--font-color-primary] "}`} onClick={toggleMenu}/>
      
     </BrowserRouter>
     
-     <section className='w-1/5 flex flex-col self-end'>
-      <ChangeBodyTheme onClick = {changeColor}>alterar cor</ChangeBodyTheme>
-      <BtnMenu onClick={toggleMenu}/>
-     </section>
+   
+    
   </div>
   )
 }
