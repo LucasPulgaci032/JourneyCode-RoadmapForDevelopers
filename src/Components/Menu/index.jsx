@@ -14,9 +14,14 @@ const urls = [
 ]
 
 
-export function BtnMenu({...props}){
+export function BtnMenu({onClick,...props}){
     return( 
-        <button {...props} ><CiMenuBurger/></button>
+        <button 
+        {...props} 
+        onClick={onClick} 
+        className={`text-3xl p-4 ${onClick ? "ml-[300px] text-[--font-color-primary]" : "ml-[0px] text-[--font-color-primary]"}`}>
+                <CiMenuBurger/>
+        </button>
     )
 }
 

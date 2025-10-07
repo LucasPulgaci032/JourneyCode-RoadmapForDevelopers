@@ -1,8 +1,11 @@
+import { LangsContainer } from "../../../RoadmapComponents/Container"
+import { LangTitle } from "../../../RoadmapComponents/LangTitle"
+
 function RoadmapPython(){
     return(
-        <div>
-            <p>Roadmap Python</p>
-        </div>
+     <LangsContainer>
+        <LangTitle>Python</LangTitle>
+     </LangsContainer>
     )
 }
 

@@ -1,8 +1,14 @@
+import { LangsContainer } from "../../../RoadmapComponents/Container"
+import { LangTitle } from "../../../RoadmapComponents/LangTitle/index"
+
 function RoadmapJs(){
-    return <div>
-        <p>roadmap js</p>
+    return (
+    <LangsContainer>
+           <LangTitle>JavaScript</LangTitle> 
+    </LangsContainer>
        
-    </div>
+    
+    )
 }
 
 export default RoadmapJs

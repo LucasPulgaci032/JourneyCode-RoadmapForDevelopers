@@ -30,7 +30,7 @@ export function RoadmapCards({...props}){
                 <Card key={item.id}>
                     <h2>{item.name}</h2>
                     <span className='text-3xl'>{item.logo}</span>
-                    <Link className=' flex bg-blue-500 w-1/2 text-[--font-color-secundary] rounded-lg self-center p-4' to={item.path}>Iniciar estudos</Link>
+                    <Link className=' flex bg-blue-500 w-1/2 text-[--font-color-secundary] rounded-lg self-center p-4 hover:bg-blue-900' to={item.path}>Iniciar estudos</Link>
                     <p>{item.description}</p>
                 </Card>
             ))}
@@ -40,7 +40,7 @@ export function RoadmapCards({...props}){
 
  function Card({children}){
     return(
-        <div className='flex flex-col border border-[--font-color-primary]  h-auto rounded-md p-4'>
+        <div className='flex flex-col border border-[--font-color-primary]  h-auto rounded-md p-4 '>
             {children}
         </div>
     )

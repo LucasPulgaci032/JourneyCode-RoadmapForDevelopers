@@ -25,7 +25,7 @@ export default function StartComponents() {
             animate-glow
             ">   
             <Title className="text-[--font-color-title] font-[Orbitron] font-bold tracking-widest text-[40px] max-w-[80%]">JourneyCode</Title>
-             <Banner src = {bannerImg}/>
+             <Banner/>{/*src = {bannerImg}/*/}
         </header>
             <Description justifyStart>Aprenda, progrida e conquiste: roadmaps claros para cada linguagem essencial.</Description>
            

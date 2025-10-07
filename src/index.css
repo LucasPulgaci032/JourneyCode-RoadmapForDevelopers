@@ -10,10 +10,13 @@
     --font-color-primary: #3b82f6;
     --font-color-secundary: #93c5fd; 
     --font-color-title: rgb(32, 32, 158);
+   
 }
 
 nav {
     --nav-color : #164DA6;
 }
+
+
 
 
