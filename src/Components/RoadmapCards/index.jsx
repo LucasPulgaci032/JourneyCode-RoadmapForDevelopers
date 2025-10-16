@@ -9,7 +9,7 @@ const languages = [
     name:"Roadmap JavaScript",
     logo: <IoLogoJavascript/>,
     description:"A linguagem que domina a web",
-    path:'/roadmapjs'
+    path:'/JavaScript'
 },
   
 
@@ -17,7 +17,7 @@ const languages = [
     name:"Roadmap Python",
     logo: <FaPython/>,
     description:"A linguagem que domina data science",
-    path:'/roadmappy'
+    path:'/Python'
     }
 
 ]

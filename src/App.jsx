@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 import { BtnMenu, Menu } from "./Components/Menu";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import { AboutPage } from "./Pages/AboutPage";
-import { RoadmapJs, RoadmapPython } from "./Pages/RoadmapLangPages/exportsRoad";
 import ChangeBodyTheme from '../src/Components/body/index'
+import { RoadmapGeneric } from "./Pages/RoadmapLangPages/RoadmapAPI";
 
 
 function App() {
@@ -42,12 +42,8 @@ function toggleMenu(){
        
       <Routes> 
         <Route path='/' element={<InicialPage/>}/>    
-        <Route path='/About' element={<AboutPage/>}/>
-       
-      </Routes>
-      <Routes> {/*rotas dos roadmaps */}
-          <Route path="/roadmapjs" element={<RoadmapJs/>}/>
-          <Route path="/roadmappy" element={<RoadmapPython/>}/>
+        <Route path='/About' element={<AboutPage/>}/> 
+        <Route path="/:name" element={<RoadmapGeneric/>}/>
       </Routes>
        
      
@@ -60,3 +56,13 @@ function toggleMenu(){
 }
 
 export default App
+
+
+//cards[] → <Link to="/react"> → rota "/:name" → useParams() → fetch API → renderData → conteúdo dinâmico
+
+{/*link to pega prop path de um array local e mapeado para cada card, a rota generica vai usar o valor do path do card que for clicado. UseParams vai pegar esse valor, o fetch vai buscar os dados da api e depois uma variavel vai guardar o valor filtrado que é condizente com o valor de nome
+  
+  
+estudar react markDown
+  
+  */}
