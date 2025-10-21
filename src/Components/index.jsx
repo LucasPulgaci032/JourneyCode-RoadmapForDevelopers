@@ -1,9 +1,11 @@
 import { Banner } from "./Banner";
 import Title from "./Title";
-import bannerImg from "../Images/exports";
 import Description from "./Description";
 import {HowToUse, LinesHTU} from "./HowUse";
 import { RoadmapCards } from "./RoadmapCards";
+import { InitialCard } from "./InitialCard/card";
+InitialCard
+
 //import { useState } from "react";
 export default function StartComponents() {
 
@@ -13,6 +15,8 @@ export default function StartComponents() {
      setMenu(!menu)
    }*/
 
+  
+
     return(
         <div className=" flex flex-col gap-20 text-center" >
             <header className="flex flex-col 
@@ -20,7 +24,7 @@ export default function StartComponents() {
             items-center 
             gap-4 
             bg-gradient-to-r from-blue-500 to-purple-600 
-            p-2 
+            m-10
             rounded-md
             animate-glow
             ">   
@@ -34,6 +38,7 @@ export default function StartComponents() {
                 <LinesHTU>Siga o roadmap</LinesHTU>
                 <LinesHTU>Perceba sua evolução.</LinesHTU>
             </HowToUse>
+                <InitialCard/>
             <Description>Escolha a linguagem e siga seu roadmap de estudos passo a passo.</Description>
            <RoadmapCards/>
         </div>

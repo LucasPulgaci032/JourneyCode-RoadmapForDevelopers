@@ -3,7 +3,7 @@
 
 function Description({children, justifyStart = false}){
     return (
-        <h2 className={`animate-bounce ${justifyStart ? "self-start" : "self-center"} `}>{children}</h2>
+        <h2 className={`animate-bounce p-8 ${justifyStart ? "self-start" : "self-center"} `}>{children}</h2>
     )
 }
 

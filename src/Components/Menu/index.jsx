@@ -19,7 +19,7 @@ export function BtnMenu({onClick,...props}){
         <button 
         {...props} 
         onClick={onClick} 
-        className={`flex justify-end text-4xl p-4  bottom-0 ml-auto  ${onClick ? "text-[--font-color-primary]" : "text-[--font-color-secundary]"}`}>
+        className={`flex justify-end text-4xl p-4  bottom-0 right-0 fixed ${onClick ? "text-[--font-color-primary]" : "text-[--font-color-secundary]"}`}>
                 <CiMenuBurger/>
         </button>
     )

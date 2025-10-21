@@ -7,6 +7,7 @@ import { BrowserRouter,Routes,Route } from "react-router-dom";
 import { AboutPage } from "./Pages/AboutPage";
 import ChangeBodyTheme from '../src/Components/body/index'
 import { RoadmapGeneric } from "./Pages/RoadmapLangPages/RoadmapAPI";
+import { InitialCardPage } from "./Components/InitialCard";
 
 
 function App() {
@@ -21,7 +22,7 @@ function changeColor(){
 }
 
 useEffect(()=>{
-  document.body.className = `${color ? "bg-white text-[--font-color-primary]" : "bg-[#040727] text-[--font-color-secundary]" }`
+  document.body.className = `${color ? "bg-[#F5F5F5] text-[--font-color-primary]" : "bg-[#040727] text-[--font-color-secundary]" }`
   
 },[color])
 
@@ -43,6 +44,7 @@ function toggleMenu(){
       <Routes> 
         <Route path='/' element={<InicialPage/>}/>    
         <Route path='/About' element={<AboutPage/>}/> 
+        <Route path='/LogicaBasica' element={<InitialCardPage/>}/>
         <Route path="/:name" element={<RoadmapGeneric/>}/>
       </Routes>
        

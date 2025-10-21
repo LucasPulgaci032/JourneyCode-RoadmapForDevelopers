@@ -1,8 +1,11 @@
 import{
     IoLogoJavascript,
-    FaPython
+    FaPython,
+    FaJava
 }from "../../Icons/exportIcons"
 import { Link } from "react-router-dom"
+
+
 
 const languages = [
     {id: 1,
@@ -18,7 +21,14 @@ const languages = [
     logo: <FaPython/>,
     description:"A linguagem que domina data science",
     path:'/Python'
-    }
+    },
+
+    {id: 3,
+    name:"Roadmap Java",
+    logo: <FaJava/>,
+    description:"A linguagem que move o mundo corporativo ",
+    path:'/Java'
+}
 
 ]
 
