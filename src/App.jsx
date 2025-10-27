@@ -1,30 +1,17 @@
 
 import "./App.css";
 import InicialPage from "./Pages/InicialPage";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { BtnMenu, Menu } from "./Components/Menu";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import { AboutPage } from "./Pages/AboutPage";
-import ChangeBodyTheme from '../src/Components/body/index'
 import { RoadmapGeneric } from "./Pages/RoadmapLangPages/RoadmapAPI";
 import { InitialCardPage } from "./Components/InitialCard";
 
 
 function App() {
  
-
-
-
-const [color,setColor] = useState(true)
-
-function changeColor(){
-  setColor(!color)
-}
-
-useEffect(()=>{
-  document.body.className = `${color ? "bg-[#F5F5F5] text-[--font-color-primary]" : "bg-[#040727] text-[--font-color-secundary]" }`
   
-},[color])
 
 const [menu, setMenu] = useState(false)
 
@@ -50,7 +37,7 @@ function toggleMenu(){
        
      
     </BrowserRouter>
-    <ChangeBodyTheme onClick = {changeColor}>Alterar cor</ChangeBodyTheme>
+
     <BtnMenu onClick = {toggleMenu}/>
     
   </div>

@@ -1,5 +1,7 @@
 import { CiMenuBurger } from "react-icons/ci"
 import {Link} from "react-router-dom"
+import ChangeBodyTheme from "../body"
+
 
 
 const urls = [
@@ -14,7 +16,11 @@ const urls = [
 ]
 
 
+
 export function BtnMenu({onClick,...props}){
+
+  
+
     return( 
         <button 
         {...props} 
@@ -26,11 +32,14 @@ export function BtnMenu({onClick,...props}){
 }
 
 export function Menu({...props}){
+
+
     return (
         <nav {...props}>
             {urls.map((item,index)=>(
                 <Link key={index}to={item.path}>{item.name}</Link>
             ))}
+             <ChangeBodyTheme>Alterar cor</ChangeBodyTheme>
         </nav>
     )
 }
