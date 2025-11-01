@@ -13,16 +13,21 @@ export function ContextProvider({children}){
           setColor(!color)
         }
         
-      
+        
+        const [menu, setMenu] = useState(false)
+
+        function toggleMenu(){
+            setMenu(!menu)      
+        }
 
         useEffect(()=>{
         document.body.className = `${color ? "bg-[#F5F5F5] text-[--font-color-primary]" : "bg-[#040727] text-[--font-color-secundary]" }`
         
-        },[color])
+        },[color,menu])
    
     return(
 
-        <ThemeProvider value={{color, changeColor}}>
+        <ThemeProvider value={{color, changeColor, menu, toggleMenu, setMenu}}>
             {children}
         </ThemeProvider>
     )

@@ -46,7 +46,7 @@ if (!render) return <p>Item não encontrado</p>
         <LangDescription>{render.description}</LangDescription>
             <h2 className="text-3xl">Topicos</h2>
         <LangTopics>
-            {render.topics}
+            {render.topics.varAndConsts}
         </LangTopics>
     </LangsContainer>
     )
