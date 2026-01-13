@@ -2,19 +2,14 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { LangsContainer, LangTitle, LangDescription, LangTopics, TopicsTitle } from "../../RoadmapComponents/exports.js"
 import ReactMarkdown from 'react-markdown'
-
-import { varAndConstsJS, varAndConstsPy, varAndConstJava, classJava, dataTypesCodeJS } from "./roadmapContent.ts"
+import { roadmapContent } from "./roadmapContent.ts";
+import { classJava} from "./roadmapContent.ts"
 import { SectionCode } from "../../RoadmapComponents/SectionCode/SectionCode.jsx";
 import {ToggleSectionCode } from "../../Components/ToggleSectionCode/ToggleSectionCode.jsx";
 
+
 export function RoadmapGeneric(){
 
-const roadmapContent = [
-    {JavaScript : [varAndConstsJS,dataTypesCodeJS]},
-    {Python : [varAndConstsPy,'avc']},
-    {Java: [varAndConstJava,'asc']},
-   
-]
 
  const { name } = useParams()
 
@@ -23,31 +18,27 @@ const[renderData, setRenderData] = useState([])
 const [error,setError] = useState(false)
 const [loading,setLoading] = useState(true)
 
-
-
-
-
-
 useEffect(()=>{
     setTimeout(()=>{ 
     async function fetchLang(){
         try{
             const res = await fetch('http://localhost:3000/roadmaps')
+           
             if(!res.ok){
                 setError(true)
                 return
             }
             const data = await res.json()
+           
             setRenderData(data)
+            
+            
         }catch(error){
             setError(true)
         }finally{
             setLoading(false)
         }
-    }
- 
- 
-    
+    } 
 
     fetchLang()
   
@@ -62,8 +53,9 @@ useEffect(()=>{
     const render = renderData.find(item => item.name === name)
    
     const javaClass = name == "Java" ? classJava : null
-  
-  
+
+
+const topicName = ["Variáveis","Tipos de dados"]
 if (!render) return <p>Item não encontrado</p>
     return(
 
@@ -78,50 +70,32 @@ if (!render) return <p>Item não encontrado</p>
           </SectionCode> :
           null
         }
-              <div className="flex flex-col gap-8 max-w-[90%]
-            min-w-[90%] ">
-            <TopicsTitle>
-                Variáveis
-            </TopicsTitle>
-             <LangTopics>
-                 {render.topics[0].varAndConsts}
-            </LangTopics>
-        
-            {roadmapContent.filter(param => param[name]).map((param,idx) => (
-                <SectionCode key={idx}>
-                   <ReactMarkdown >
-                        {param[name][0]}
-                   </ReactMarkdown> {/*precisa de [name] para acessar o conteudo do objeto, sem ele, acessa o objeto , o que o ractMarkdown não renderiza */}
-                </SectionCode>
-            ))}
-       
-            <TopicsTitle>Tipos de dados</TopicsTitle>
-                <LangTopics>
-                 {render.topics[0].dataTypes}
-                </LangTopics>
+
+
+            {roadmapContent.filter(param => param.language === name).map((codeTopic,idx) => {
+            
+                 
+                   
+                return( 
+                    Object.entries(render.topics).slice(1,-2).map(([tpc,description],tpcIdx)=>
                 
-                 {roadmapContent.filter(param => param[name]).map((param,idx) =>{
-                   const code = param[name][1]
-                   
-                   
-                  return(
-                     <SectionCode key={idx}>
-                         <LangDescription>Tipos de dados</LangDescription>
-                       <ToggleSectionCode code = {code}/>
-                        
+                <div className="flex flex-col gap-8 w-full " key={`${idx}-${tpcIdx}`}> {/*as keys devem estar no pai */}
+                <TopicsTitle>
+                {topicName[tpcIdx]}
+                </TopicsTitle>
+                <LangTopics>
+                    {description}
+                </LangTopics>
+                    <SectionCode>
+                       {topicName[tpcIdx]}
+                    <ToggleSectionCode code = {codeTopic[tpc]?.code}/>                        
                     </SectionCode>
-                    )})
-                    } 
-                     
-                 
-                   
-               
-                 
-        </div>
-          
+                
+                </div>
+           ))} )}      
+                            
     </LangsContainer>
 
     )
 
 }
-{/*armazenar a logica de renderização condicional dentro do componente evitando reescrever codigo */}
