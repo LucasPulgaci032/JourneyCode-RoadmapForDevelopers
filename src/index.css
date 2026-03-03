@@ -3,17 +3,33 @@
 @tailwind utilities;
 
 * {
-    font-family: 'Orbitron','sans-serif';
+  font-family: "Orbitron", "sans-serif";
 }
 
 :root {
-    --font-color-primary: #3b82f6;
-    --font-color-secundary: #93c5fd; 
-    --font-color-title: rgb(32, 32, 158);
-   
+  --font-color-primary: #2471ec;
+  --font-color-secundary: #93c5fd;
+  --font-color-title: rgb(32, 66, 158);
+}
+section {
+  --font-color-section1: #a8c0eb;
+  --bg-color-section1: #073366;
+  --font-color-section2: #072969;
+  --bg-color-section2: #538efa;
 }
 
-nav {
-    --nav-color : #164DA6;
+code,
+pre {
+  color: white !important;
+  white-space: pre-wrap; /* permite quebra */
 }
 
+button {
+  --button-text-color-primary: #93c5fd;
+  --button-text-color-secundary: rgb(32, 66, 158);
+}
+
+input {
+  color: rgb(5, 5, 75);
+  font-size: 1.2rem;
+}
