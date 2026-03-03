@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const Provider = createContext()
+export const Provider = createContext();

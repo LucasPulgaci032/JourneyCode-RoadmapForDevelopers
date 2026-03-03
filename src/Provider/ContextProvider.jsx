@@ -1,44 +1,83 @@
 import { useState, useEffect } from "react";
-import {useLocation} from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { createContext } from "react";
-export const ThemeProvider = createContext()
 
-export function ContextProvider({children}){
-   
-   
-        const [color,setColor] = useState(true)
-        
-        function changeColor(){
-          setColor(!color)
-        }
-        
-        
-        const [menu, setMenu] = useState(false)
+export const ThemeProvider = createContext();
 
-        function toggleMenu(){
-            setMenu(!menu)      
-        }
-        const location = useLocation()
-        const scrollerToTop = window.onload= () => {
-            window.scrollTo(0,0)
-        }
-        
-        useEffect(()=>{
-        document.body.className = `${color ? "bg-[#040727] text-[--font-color-secundary]"  : "bg-blue-100 text-[--font-color-primary]"}` //responsavel por cor de fundo e toggle de menu
-        setMenu(false)//torna explicito o que ja fazia antes. O menu fechava por conta do re render da pagina baseado na alternancia da cor, agora fecha por esse setMenu
-        },[color])
 
-        useEffect(()=>{       
-             scrollerToTop()
-             setMenu(false) //torna explicito o que ja fazia antes
-        },[location.pathname]) //responsavel por levar o scroll para cima sempre que a url muda
+export function ContextProvider({ children }) {
 
-        // Se colocasse tudo dentro de um só useEffect daria conflito pois tudo seria executado se apenas uma coisa mudasse
+  
+  const [color, setColor] = useState(true); {/*state body color */}
+  const [menu, setMenu] = useState(false); {/*state menu (open or closed) */}
+  
+  const [hiddenSection, setHiddenSection] = useState(null); {/*state of code section (open or closed) */}
+  const [email, setEmail] = useState(""); {/*email input value */}
+  const [password, setPassword] = useState(""); {/*password input value */}
+  const [modal, setModal] = useState(null); {/*warning modal content */}
 
-    return(
+  function changeColor() {
+    setColor(!color);
+  }
 
-        <ThemeProvider value={{color, changeColor, menu, toggleMenu, setMenu}}>
-            {children}
-        </ThemeProvider>
-    )
+  function toggleMenu() {
+    setMenu(!menu);
+  }
+  const location = useLocation();
+  const scrollerToTop = (window.onload = () => {
+    window.scrollTo(0, 0);
+  });
+
+ 
+  
+
+  {/*state lifting */}
+  const toggleSection = (idx) => {
+    setHiddenSection(hiddenSection === idx ? null : idx);
+  };
+
+  {/*background color manipulator*/}
+  useEffect(() => {
+    document.body.className = `${
+      color
+        ? "bg-[#040727] text-[--font-color-secundary]"
+        : "bg-blue-200 text-[--font-color-primary]"
+    }`;
+
+    setMenu(false); 
+  }, [location.pathname, color]);
+
+  {/*The logic of scrolling the page when it reloads or changes */}
+  useEffect(() => {
+    scrollerToTop();
+    setHiddenSection(null); 
+    setMenu(false);
+    
+  }, [location.pathname]); 
+
+
+
+
+  return (
+    <ThemeProvider
+      value={{
+        color,
+        changeColor,
+        menu,
+        toggleMenu,
+        setMenu,
+        hiddenSection,
+        setHiddenSection,
+        toggleSection,
+        password,
+        setPassword,
+        email,
+        setEmail,
+        modal,
+        setModal,
+      }}
+    >
+      {children}
+    </ThemeProvider>
+  );
 }
