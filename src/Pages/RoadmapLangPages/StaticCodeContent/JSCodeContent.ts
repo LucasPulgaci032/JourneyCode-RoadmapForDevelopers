@@ -1,5 +1,5 @@
 //JavaScript
-export const varAndConstsJS: string =  `
+export const varAndConstsJS: string = `
 \`\`\`js
 //Exemplo com let
 
@@ -32,7 +32,7 @@ function testeVar(n){
 console.log(testeVar(5)); //SAÍDA  = 1 =>  Mesmo que var tenha sido declarada dentro do bloco for (explicado mais adiante), ela ainda pode ter seu valor acessado fora dele.
 \`\`\`
 
-`
+`;
 
 export const dataTypesCodeJS: string = `
 //string
@@ -67,9 +67,7 @@ console.log(typeof array);
 SAÍDA = Object
 `;
 
-
-
-export const objArrJS : string =  `
+export const objArrJS: string = `
 //Objeto
 \`\`\`
 const obj = {nome: 'João',
@@ -120,9 +118,9 @@ numeros[0] → 1ª posição -> numeros[0] = 1
 numeros[1] → 2ª posição -> numeros[1] = 2
 numeros[2] → 3ª posição -> numeros[2] = 3
 \`\`\`
-`
+`;
 
-export const operatorsJS : string = `
+export const operatorsJS: string = `
 ### Operadores Aritméticos
 São usados para realizar cálculos matemáticos.
 
@@ -139,7 +137,7 @@ a % b; // 1  (resto da divisão)
 
 ---
 
-###Operadores de Atribuição
+### Operadores de Atribuição
 Servem para atribuir ou atualizar valores em variáveis.
 \`\`\`js
 let valor = 10;
@@ -153,7 +151,7 @@ valor /= 4;   // valor = valor / 4
 
 ---
 
-###Operadores de Comparação
+### Operadores de Comparação
 Comparam valores e retornam true ou false.
 \`\`\`js
 5 == '5';   // true  (compara apenas o valor)
@@ -166,7 +164,7 @@ Comparam valores e retornam true ou false.
 
 ---
 
-###Operadores Lógicos
+### Operadores Lógicos
 Usados para combinar ou inverter condições.
 \`\`\`js
 const idade = 20;
@@ -179,7 +177,7 @@ idade < 18 || temCarteira;  // true
 
 ---
 
-###Operador Ternário
+### Operador Ternário
 Uma forma curta de escrever uma condição if/else.
 \`\`\`js
    const idade = 16;
@@ -191,7 +189,7 @@ const resultado = idade >= 18
 
 ---
 
-###Operador typeof
+### Operador typeof
 Retorna o tipo de um valor.
 Uma forma curta de escrever uma condição if/else.
 \`\`\`js
@@ -200,9 +198,12 @@ typeof 'texto';     // "string"
 typeof true;        // "boolean"
 typeof {};          // "object"
 typeof undefined;   // "undefined"   
+
 \`\`\`
 
-###Operador instanceof
+---
+
+### Operador instanceof
 Verifica se um objeto pertence a uma determinada classe.
 \`\`\`js
   class Usuario {}
@@ -213,4 +214,4 @@ user instanceof Usuario; // true
 user instanceof Object;  // true
 \`\`\`
 
-`
+`;
