@@ -250,3 +250,89 @@ print(a is not c)   # True
 
 
 `;
+
+export const loopingsPy : string = `
+\`\`\`  
+for i in range(5):
+    print(i)
+
+\`\`\`
+//SAÍDA:  \n
+         0
+         1
+         2
+         3
+         4
+         \n
+// Explicação: "i" é a variável de controle do loop. \n
+// A cada iteração, ela recebe o próximo valor gerado por range(), \n
+// começando em 0 e incrementando de 1 em 1.
+
+---
+
+## Definindo de onde o looping começa
+\`\`\`  
+for i in range(1,5):
+    print(i)
+
+\`\`\`
+//SAÍDA: \n
+         1
+         2
+         3
+         4
+         5
+//Explicação: aqui, definimos que o valor de i na primeira iteração é 1 \n
+//o range é 5, então i percorre o looping 5 vezes iniciando em 1 e incrementando em 1 a cada volta
+
+---
+
+## Percorrendo lista
+\`\`\`  
+frutas = ["maçã", "banana", "uva"]
+
+for fruta in frutas:
+    print(fruta)
+
+\`\`\`
+//SAÍDA: \n
+         maçã
+         banana
+         uva
+//Explicação: fruta é a variável que irá percorrer a lista fruntas, em cada iteração ela recebe o valor contido no índice atual  \n
+             -> indice 0 = maçã \n
+             -> indice 1 = banana \n
+             -> indice 2 = uva
+`
+
+export const ctrlEstructuresPy : string = `
+
+## If / else
+\`\`\`  
+numero = 10
+
+if numero > 5 :
+    print("numero maior que 5")
+else:
+    print("numero menor ou igual a 5")
+
+\`\`\`
+//SAÍDA: numero maior que 5
+
+---
+
+## elif
+\`\`\`  
+
+numero = 10
+
+if numero > 10 :
+    print("numero maior que 10")
+elif numero == 10 :
+    print("numero igual a 10")
+else:
+    print("numero menor que 10")
+
+\`\`\`
+//SAÍDA: numero igual a 10
+`

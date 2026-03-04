@@ -28,10 +28,10 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
         <Route element={<PrivateRoute/>}>
-        <Route path="/roadmaps" element={<StartComponents />} />
-        <Route path="/About" element={<AboutPage />} />
-        <Route path="/LogicaBasica" element={<InitialCardPage />} />
-        <Route path="roadmaps/:name" element={<RoadmapGeneric />} />
+          <Route path="/roadmaps" element={<StartComponents />} />
+          <Route path="/About" element={<AboutPage />} />
+          <Route path="/LogicaBasica" element={<InitialCardPage />} />
+          <Route path="roadmaps/:name" element={<RoadmapGeneric />} />
         </Route>
       </Routes>
       {location.pathname !== "/" && location.pathname !== "/register" && (

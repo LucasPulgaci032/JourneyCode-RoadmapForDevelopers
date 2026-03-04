@@ -45,7 +45,7 @@ export default function StartComponents() {
           JourneyCode
         </Title>  
       </header>
-      <p className="font-bold text-4xl">{userName && `Olá, ${userName} !`}</p>
+      <p className="font-bold text-5xl">{userName && `Olá, ${userName} !`}</p>
       <Description justifyStart>
         Aprenda, progrida e conquiste: roadmaps claros para cada linguagem
         essencial.

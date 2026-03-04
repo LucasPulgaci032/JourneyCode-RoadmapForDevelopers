@@ -1,18 +1,26 @@
+import { ButtonHTMLAttributes } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import ChangeBodyTheme from "../body/ChangeBodyThemeButton";
 import { stylesForMenuLinks } from "../../Styles/styles";
 import { useLocation , useNavigate} from "react-router-dom";
 
-const urls = [
+
+type Url = {
+  id : number,
+  name : string,
+  path : string
+}
+const urls : Url[] = [
   { id: 1, name: "Inicio", path: "/roadmaps" },
   { id: 2, name: "Sobre", path: "/about" },
   
 ];
 
+type BtnProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-export function BtnMenu({ onClick, ...props }) {
-  const locationButton = useLocation();
+export function BtnMenu({ onClick} : BtnProps ){
+  const locationButton  = useLocation();
 
 
   return (
@@ -25,7 +33,7 @@ export function BtnMenu({ onClick, ...props }) {
   );
 }
 
-export function Menu({ ...props }) {
+export function Menu({ ...props } : BtnProps) {
     const navigate = useNavigate()
 
 const handleLogout = () =>{

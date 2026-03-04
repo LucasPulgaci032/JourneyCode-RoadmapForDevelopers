@@ -10,6 +10,8 @@ import {
   dataTypesCodePy,
   objArrPy,
   operatorsPy,
+  ctrlEstructuresPy,
+  loopingsPy,
 } from "./StaticCodeContent/PyCodeContent";
 
 import {
@@ -29,6 +31,7 @@ type RoadmapItem = {
   dataTypes: CodeBlock;
   operators: CodeBlock;
   objArr?: CodeBlock;
+  loopings: CodeBlock;
   ctrlEstructures: CodeBlock;
   functions: CodeBlock;
 };
@@ -42,12 +45,14 @@ export const roadmapContent: RoadmapItem[] = [
     dataTypes: {
       code: dataTypesCodeJS,
     },
-
+    operators: {
+      code: operatorsJS,
+    },
     objArr: {
       code: objArrJS,
     },
-    operators: {
-      code: operatorsJS,
+    loopings :{
+      code : "abc"
     },
     ctrlEstructures: {
       code: "abc",
@@ -64,14 +69,17 @@ export const roadmapContent: RoadmapItem[] = [
     dataTypes: {
       code: dataTypesCodePy,
     },
-    objArr: {
-      code: objArrPy,
-    },
     operators: {
       code: operatorsPy,
     },
+    objArr: {
+      code: objArrPy,
+    },
+     loopings :{
+      code : loopingsPy
+    },
     ctrlEstructures: {
-      code: "abc",
+      code: ctrlEstructuresPy
     },
 
     functions: {
@@ -86,11 +94,14 @@ export const roadmapContent: RoadmapItem[] = [
     dataTypes: {
       code: dataTypesCodeJava,
     },
+    operators: {
+      code: operatorsJava,
+    },
     objArr: {
       code: objArrJava,
     },
-    operators: {
-      code: operatorsJava,
+     loopings :{
+      code : "abc"
     },
     ctrlEstructures: {
       code: "abc",

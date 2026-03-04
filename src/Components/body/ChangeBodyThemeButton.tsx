@@ -1,8 +1,13 @@
-import { useContext } from "react";
+import { ButtonHTMLAttributes, ReactNode, useContext } from "react";
 import { ThemeProvider } from "../../Provider/ContextProvider";
 import { stylesForMenuLinks } from "../../Styles/styles";
 
-function ChangeBodyTheme({ children, ...props }) {
+type ChangeBodyThemeProps = {
+  children : ReactNode
+} & ButtonHTMLAttributes<HTMLButtonElement>
+
+
+function ChangeBodyTheme({ children, ...props } : ChangeBodyThemeProps)  {
   const { changeColor } = useContext(ThemeProvider);
 
   return (
